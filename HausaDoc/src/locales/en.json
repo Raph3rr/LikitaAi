@@ -65,7 +65,7 @@
     "healthFacilities": "Health Facilities in Northern Nigeria",
     "searchByState": "Search by facility name, state, or LGA",
     "homeCareTips": "Home Care Tips",
-    "home.loadingFacilities": "Loading Facilities"
+    "loadingFacilities": "Loading Facilities"
   },
    "conditions": {
     "title": "Medical Conditions",
