@@ -559,7 +559,7 @@ app.get("/api/facilities/:state", (req, res) => {
 // Serve local preventive tips
 app.get("/api/health-tips", async (req, res) => {
   try {
-    const data = await fsPromises.readFile("../preventive-tips.json", "utf-8");
+    const data = await fsPromises.readFile("./data/preventive-tips.json", "utf-8");
     const tips = JSON.parse(data);
     res.json({ tips });
   } catch (err) {
