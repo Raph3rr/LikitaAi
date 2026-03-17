@@ -42,7 +42,7 @@ function Home() {
     setLoadingTips(true);
     setTipsError("");
     try {
-      const res = await fetch("http://localhost:5000/api/health-tips");
+      const res = await fetch("https://likitaaibackend.onrender.com/api/health-tips");
       const data = await res.json();
       setTips(getRandomTips(data.tips || [], 5));
     } catch (err) {
@@ -57,7 +57,7 @@ function Home() {
     setLoadingDrugs(true);
     setDrugsError("");
     try {
-      const res = await fetch("http://localhost:5000/medlineplus/drugs");
+      const res = await fetch("https://likitaaibackend.onrender.com/medlineplus/drugs");
       const data = await res.json();
       setDrugs((data.drugs || []).slice(0, 9));
     } catch (err) {
@@ -72,7 +72,7 @@ function Home() {
     setLoadingFacilities(true);
     setFacilitiesError("");
     try {
-      const res = await fetch("http://localhost:5000/api/facilities");
+      const res = await fetch("https://likitaaibackend.onrender.com/api/facilities");
       const data = await res.json();
 
       // Filter only Northern Nigeria

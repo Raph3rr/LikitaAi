@@ -30,7 +30,7 @@ function SymptomChecker() {
     setSymptomError("");
 
     try {
-      const response = await fetch("http://localhost:5000/dxgpt", {
+      const response = await fetch("https://likitaaibackend.onrender.com/dxgpt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
