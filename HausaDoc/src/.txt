@@ -1,0 +1,85 @@
+// TRANSLATE DxGPT OUTPUT FUNCTION USING GEMINI
+async function translateDxGPTOutput(text) {
+  try {
+    if (!text || !text.trim()) return text;
+
+    const model = genAI2.getGenerativeModel({
+      model: "gemini-2.0-flash",
+    });
+
+    const prompt = `
+    Translate the following text from English to Hausa. All english medical terms should be translated to their correct Hausa equivalents.
+    Keep it simple, clear, and safe for patients. Do NOT add bullets, numbers, or extra formatting. Return only the translated text.
+
+    Text:
+    ${text}
+    `;
+
+    const result = await model.generateContent(prompt);
+    const translated = result.response.text();
+
+    if (!translated || !translated.trim()) {
+      console.warn("Gemini translator returned empty response");
+      return text; // fallback
+    }
+
+    return translated.trim();
+  } catch (err) {
+    console.error("Gemini translator error:", err);
+    return text; // fallback
+  }
+}
+
+
+// RANDOM ICD-10 CONDITION SERVER
+
+
+// LARGE ICD-10 LIST (TRUNCATED SAMPLE – EXPAND ANYTIME)
+const ICD10_LIBRARY = [
+  "A00", "A01.0", "A02.9", "A03.9", "A04.9", "A05.9", "A06.9", "A07.9",
+  "A08.4", "A09", "A15.0", "A16.9", "A20.9", "A30.9", "A35", "A41.9",
+  "A49.9", "A50.9", "A69.2", "A70", "A74.9",
+
+  "B00.9", "B01.9", "B02.9", "B05", "B06.9", "B07", "B08.4", "B17.9",
+  "B18.9", "B19.9", "B20", "B25.9", "B34.9", "B35.9", "B50.9", "B54",
+
+  "C00.9", "C15.9", "C18.9", "C34.9", "C44.9", "C50.9", "C61", "C71.9",
+  "C80.1", "C91.9",
+
+  "D00.9", "D12.9", "D25.9", "D50.9", "D64.9", "D69.6",
+
+  "E03.9", "E04.9", "E10.9", "E11.9", "E14.9", "E55.9", "E66.9",
+
+  "F20.9", "F32.9", "F41.9", "F51.9",
+
+  "G40.9", "G43.9", "G47.9", "G62.9",
+
+  "H00.9", "H10.9", "H61.9", "H66.9",
+
+  "I10", "I20.9", "I21.9", "I25.9", "I50.9",
+
+  "J00", "J06.9", "J18.9", "J45.9", "J47", "J98.9",
+
+  "K21.9", "K35", "K52.9", "K70.9", "K74.6",
+
+  "L01.0", "L20.9", "L30.9", "L50.9",
+
+  "M00.9", "M19.9", "M54.5", "M79.1",
+
+  "N17.9", "N18.9", "N20.0", "N30.9", "N39.0",
+
+  "O80", 
+
+  "R05", "R10.9", "R19.7", "R50.9", "R53.1", "R60.9", "R63.4", "R68.89",
+
+  "Z00.0", "Z20.9", "Z32.0", "Z72.0"
+];
+
+const flashModel2 = genAI1.getGenerativeModel({model: "gemini-2.0-flash-lite"});
+const flashModel1 = genAI2.getGenerativeModel({model: "gemini-2.5-flash"});
+
+
+
+
+
+// -----------------------------
