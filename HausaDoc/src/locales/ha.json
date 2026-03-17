@@ -63,7 +63,8 @@
     "showLess": "Rufe",
     "healthFacilities": "Cibiyoyin Lafiya a Arewacin Najeriya",
     "searchByState": "Nema ta sunan cibiyar lafiya, jiha, ko LGA",
-    "homeCareTips": "Shawarwari na Kula da Lafiya a Gida"
+    "homeCareTips": "Shawarwari na Kula da Lafiya a Gida",
+    "home.loadingFacilities": "wuraren lodi"
   },
    "conditions": {
     "title": "Matsalolin Lafiya",
