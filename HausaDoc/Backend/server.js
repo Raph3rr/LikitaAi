@@ -9,7 +9,6 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import crypto from "crypto";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { LayoutDashboard, Server } from "lucide-react";
 import xml2js from "xml2js";
 import axios from "axios";
 import fs from "fs";
